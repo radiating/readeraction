@@ -35,6 +35,10 @@ def about_me():
 def goto_blog():
    return render_template("blog.html")
 
+@app.route('/github')
+def goto_github():
+   return redirect("https://github.com/radiating/readeraction")
+
 @app.route('/demo')
 def input():
     return render_template("demo.html")
