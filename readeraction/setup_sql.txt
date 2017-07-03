@@ -1,0 +1,689 @@
+    1  sudo apt-get update
+    2  sudo apt-get install -y python
+    3  python-pip nginx
+    4  sudo apt-get install -y python-pip nginx
+    5  pip install flask gunicorn
+    6  ls
+    7  pwd
+    8  ls
+    9  cd application/
+   10  ls
+   11  ./run.py
+   12  chmod +x run.py 
+   13  ./run.py
+   14  sudo /etc/init.d/nginx start
+   15  sudo rm /etc/nginx/sites-enabled/default 
+   16  sudo touch /etc/nginx/sites-available/application
+   17  sudo ln -s /etc/nginx/sites-available/application /etc/nginx/sites-enabled/application
+   18  sudo nano /etc/nginx/sites-enabled/application 
+   19  sudo /etc/init.d/nginx restart
+   20  clear
+   21  ls
+   22  gunicorn flaskexample:app
+   23  gunicorn flaskexample:app -D
+   24  pkill gunicorn[B
+   25  pip i
+   26  pip install seaborn
+   27  pip install --upgrade pp
+   28  pip install --upgrade pip
+   29  pip install seaborn
+   30  pip install nltk[B
+   31  sudo pip install nltk
+   32  python -v
+   33  python --version
+   34  python3 --version
+   35  pip --version
+   36  which python3
+   37  sudo pip install virtualenv
+   38  virtualenv --version
+   39  cd ..
+   40  l
+   41  virtualenv readeraction -p /usr/bin/python3
+   42  l
+   43  mkdir .virtualenvs
+   44  mv readeraction .virtualenvs
+   45  l .virtualenvs/
+   46  l
+   47  l -ga
+   48  pip install virtaulenvwrapper
+   49  pip install virtualenvwrapper
+   50  sudo pip install virtualenvwrapper
+   51  vim ~/.bashrc
+   52  l
+   53  l -ga
+   54  l .local
+   55  l .local/bin
+   56  l /usr/local/bin
+   57  vim ~/.bashrc
+   58  source ~/.bashrc
+   59  workon readeraction
+   60  python --version
+   61  vim ~/.bashrc
+   62  source ~/.bashrc
+   63  workon readeraction
+   64  python --version
+   65  l
+   66  rm -rf
+   67  L
+   68  l
+   69  cd .virtualenvs/
+   70  l
+   71  rm -rf readeraction/
+   72  l
+   73  virtualenv readeraction
+   74  l
+   75  rm -rf readeraction/
+   76  virtualenv readeraction -p /usr/bin/python3
+   77  deactivate
+   78  workon readeraction
+   79  python --version
+   80  pwd
+   81  deactivate
+   82  cd ..
+   83  ls
+   84  ls -a
+   85  workon readeraction
+   86  deactivtae
+   87  deactivtate
+   88  ls
+   89  cd .virtualenvs/
+   90  ls
+   91  workon readeraction
+   92  pip --version
+   93  pip install pandas
+   94  pwd
+   95  pip install numpy
+   96  pip install requests
+   97  pip install sqlalchemy
+   98  pip install sqlalchemy_utils
+   99  pip install psycopg2
+  100  pip install gensim
+  101  pip install seaborn
+  102  pip install nltk
+  103  pip install bs4
+  104  ls ~/
+  105  ls
+  106  cd ../
+  107  ls
+  108  cd application/
+  109  ls
+  110  cd ../
+  111  pwd
+  112  ls
+  113  ll
+  114  cd .virtualenvs/
+  115  ls
+  116  cd readeraction/
+  117  cd ../
+  118  deactivtae
+  119  pwd
+  120  deactivate
+  121  workon readeraction
+  122  ls
+  123  pwd
+  124  cd .virtualenvs/readeraction/
+  125  ls
+  126  rm analyze_lda.py 
+  127  vim /etc/nginx/sites-enabled/application 
+  128  sudo vim /etc/nginx/sites-enabled/application 
+  129  sudo /etc/init.d/nginx restart
+  130  gunicorn readeraction:app
+  131  ls
+  132  mkdir readeraction
+  133  mv * ./readeraction/
+  134  ls
+  135  ls readeraction/
+  136  ls bi
+  137  ls readeraction/bin/
+  138  cd ../
+  139  ls lib
+  140  ls readeraction/li
+  141  ls readeraction/readeraction/bin/
+  142  ls
+  143  pwd
+  144  cd readeraction/
+  145  ls
+  146  cd readeraction/
+  147  ls
+  148  cd ../
+  149  ls
+  150  gunicorn readeraction:app
+  151  ls
+  152  deactivate
+  153  ls
+  154  cd
+  155  ls
+  156  mkdir InsightProject
+  157  cd InsightProject/
+  158  ls
+  159  mkdir readeraction
+  160  rm readeraction/
+  161  rm -rf readeraction/
+  162  ls ../.virtualenvs/readeraction/
+  163  ls ../.virtualenvs/readeraction/readeraction/
+  164  ls ../.virtualenvs/readeraction/
+  165  ls
+  166  mkdir readeraction
+  167  ls
+  168  cd readeraction/
+  169  ls
+  170  ls readeraction/
+  171  ls readeraction/static/
+  172  cd ../
+  173  ls
+  174  cd ../
+  175  ls
+  176  cd .virtualenvs/
+  177  ls
+  178  cd readeraction/
+  179  ls
+  180  cd ../
+  181  ls
+  182  rm -rf readeraction
+  183  virtualenv readeraction -p /usr/bin/python3 
+  184  ls
+  185  workon readeraction
+  186  cd ../
+  187  pwd
+  188  cd InsightProject/readeraction/
+  189  ls
+  190  python --version
+  191  python3 run.py 
+  192  cd ../
+  193  ls
+  194  cd application/
+  195  ls
+  196  cd ../InsightProject/
+  197  ls
+  198  cd readeraction/
+  199  ls
+  200  cd readeraction/
+  201  ls
+  202  vim __init__.py 
+  203  pwd
+  204  cd ../
+  205  ls
+  206  cd ../../.virtualenvs/readeraction/
+  207  pip --version
+  208  cd
+  209  pip install numpy
+  210  pwd
+  211  history > history.txt
+  212  vim history.txt 
+  213  pip install pandas
+  214  pip install gensim
+  215  pip install seaborn
+  216  pip install sklearn
+  217  pip install nltk
+  218  pip install sqlalchemy
+  219  pip install sqlalchemy_utils
+  220  pip install psycopg2
+  221  pip install requests
+  222  pip install bs4
+  223  pip install flask
+  224  pwd
+  225  cd InsightProject/readeraction/
+  226  ls
+  227  gunicorn readeration:app
+  228  gunicorn readeraction:app
+  229  pip install sqlalchemy
+  230  pip list
+  231  pip2 list
+  232  pip2 unstall gunicorn
+  233  pip2 uninstall gunicorn
+  234  pip install gunicorn
+  235  pip list
+  236  gunicorn readeraction:app
+  237  sudo vim /etc/nginx/sites-enabled/application 
+  238  ls 
+  239  ls readeraction/
+  240  deactivate
+  241  workon readeraction
+  242  No module named readeration
+  243  deactivate
+  244  sudo /etc/init.d/nginx restart
+  245  workon readeraction
+  246  ls
+  247  gunicorn readeraction:app
+  248  pip install _tkinter
+  249  pip install python3-tk
+  250  pip install tkinter
+  251  deactivate
+  252  sudo apt-get instal lpython3-tk
+  253  sudo apt-get install python3-tk
+  254  workon readeraction
+  255  pwd
+  256  ls
+  257  gunicorn readeraction:app
+  258  vim /etc/nginx/sites-enabled/application 
+  259  sudo /etc/init.d/nginx restart
+  260  ls
+  261  vim run.py 
+  262  ls readeraction
+  263  vim readeraction/__init__.py
+  264  vim readeraction/views.py
+  265  gunicorn readeraction:app
+  266  vim /etc/nginx/sites-enabled/application 
+  267  pkill gunicorn
+  268  gunicorn readeraction:app
+  269  pkill gunicorn
+  270  ls
+  271  cd readeraction/
+  272  ls
+  273  cd templates/
+  274  ls
+  275  vim index.html 
+  276  vim input.html 
+  277  cd ../
+  278  gunicorn readeraction:app
+  279  ls
+  280  cd readeraction/
+  281  grep '/home/tingzhu'/ *.py
+  282  vim analyze_lda.py 
+  283  pwd
+  284  vim analyze_lda.py 
+  285  vim analyze_similarity.py 
+  286  grep '/home/tingzhu'/ *.py
+  287  vim analyze_lda.py 
+  288  pwd
+  289  grep '/home/tingzhu'/ *.py
+  290  vim convert2sql.py 
+  291  grep '/home/tingzhu'/ *.py
+  292  vim make_diag_plots.py 
+  293  grep '/home/tingzhu'/ *.py
+  294  grep 'FlaskApp_rea'/ *.py
+  295  grep 'FlaskApp_rea' ./*.py
+  296  vim analyze_lda.py 
+  297  grep 'FlaskApp_rea' ./*.py
+  298  gunicorn readeraction:app
+  299  cd ../
+  300  gunicorn readeraction:app
+  301  deactivate
+  302  python3
+  303  workon readeraction
+  304  pip install nltk
+  305  python3
+  306  gunicorn readeraction:app
+  307  ls /home/ubuntu/nltk_data/corpora/stopwords
+  308  vim /home/ubuntu/nltk_data/corpora/stopwords/nyt 
+  309  gunicorn readeraction:app
+  310  python3
+  311  gunicorn readeraction:app
+  312  grep 'show()' ./readeraction/*.py
+  313  grep 'plt.' ./readeraction/*.py
+  314  ls
+  315  ls readeraction/static/
+  316  exit
+  317  ls
+  318  cd InsightProject/readeraction/
+  319  ls
+  320  workon readeraction
+  321  ls
+  322  gunicorn readeraction:app
+  323  ls
+  324  ls readeraction/static/
+  325  vim readeraction/views.py
+  326  gunicorn readeraction:app
+  327  ls
+  328  vim readeraction/views.py
+  329  grep 'topic top' ./readeraction/*.py
+  330  vim readeraction/analyze_lda.py 
+  331  grep 'compareToNew' ./*.py
+  332  vim readeraction/analyze_lda.py 
+  333  grep 'compare' ./*.py
+  334  grep 'compare' ./readeraction/*.py
+  335  cd readeraction/
+  336  vim analyze_similarity.py 
+  337  vim views.py
+  338  grep 'add_c
+  339  grep 'add_c' *.py
+  340  vim analyze_similarity.py 
+  341  vim analyze_lda.py 
+  342  cd ../
+  343  gunicorn readeraction:app
+  344  grep 'Finish' ./readeraction/*.py
+  345  vim readeraction/analyze_similarity.py 
+  346  grep 'get_lda' ./readeraction/*.py
+  347  vim readeraction/views.py
+  348  vim readeraction/config_readeraction.py
+  349  gunicorn readeraction:app
+  350  vim readeraction/views.py
+  351  vim readeraction/analyze_lda.py 
+  352  grep 'interpre' ./readeraction/*.py
+  353  vim readeraction/build_lda.py 
+  354  vim readeraction/views.py
+  355  vim readeraction/make_diag_plots.py 
+  356  gunicorn readeraction:app
+  357  ls
+  358  grep 'left' ./readeraction/*.py
+  359  grep 'sans' ./readeraction/*.py
+  360  vim readeraction/make_diag_plots.py 
+  361  ls readeraction/static/
+  362  vim readeraction/views.py
+  363  postgresql
+  364  grep 'sql' ./readeraction/*.py
+  365  grep 'pos' ./readeraction/*.py
+  366  postgres
+  367  gunicorn readeraction:app
+  368  ls readeraction/static/
+  369  pip install psycopg2
+  370  psql
+  371  deactivate
+  372  sudo apt-get update
+  373  sudo apt-get install postgresql postgresql-contrib
+  374  sudo -i -u postgres
+  375  ls
+  376  gunicorn readeraction:app
+  377  workon readeraction
+  378  gunicorn readeraction:app
+  379  pkill gunicorn
+  380  gunicorn readeraction:app
+  381  pkill gunicorn
+  382  ls readeraction/static/
+  383  rm readeraction/static/*.png
+  384  ls readeraction/static/
+  385  deactivate
+  386  postgres
+  387  postgresql
+  388  psql
+  389  postgres
+  390  psql
+  391  psql tingzhu
+  392  cd
+  393  psql
+  394  sudo -i -u postgres
+  395  sudo -i -u readeraction_db
+  396  sudo -u postgres psql
+  397  workon readeraction
+  398  cd InsightProject/readeraction/
+  399  ls
+  400  cd readeraction/
+  401  vim config_readeraction.py
+  402  vim views.py
+  403  vim config_readeraction.py
+  404  vim convert2sql.py 
+  405  grep 'psycopg2.connect' *.py
+  406  cd ../
+  407  gunicorn readeraction:app
+  408  vim readeraction/convert2sql.py 
+  409  gunicorn readeraction:app
+  410  ls readeraction/static/
+  411  ls
+  412  cd readeraction/
+  413  ls
+  414  vim views.py
+  415  vim analyze_lda.py 
+  416  grep 'to plot topics break' *.py
+  417  vim make_diag_plots.py 
+  418  cd ..
+  419  gunicorn readeraction:app
+  420  exit
+  421  cd InsightProject/readeraction/
+  422  gunicorn readeraction:app
+  423  workon readeraction
+  424  gunicorn readeraction:app
+  425  pkill
+  426  ps
+  427  top
+  428  clear
+  429  exit
+  430  cd InsightProject/readeraction/
+  431  workon readeraction
+  432  gunicorn readeraction:app
+  433  ls readeraction/static/
+  434  grep 'newdoc_' ./*.py
+  435  grep 'newdoc_topics.png' ./*.py
+  436  grep 'newdoc_topics.png' ./readeraction/*.py
+  437  cd readeraction/
+  438  vim views.py
+  439  vim analyze_similarity.py 
+  440  vim views.py
+  441  vim make_diag_plots.py 
+  442  vim views.py
+  443  grep 'Cleaned' *.py
+  444  vim analyze_lda.py 
+  445  grep 'calc_cosinc' *.py
+  446  grep 'calc_cosine' *.py
+  447  vim analyze_
+  448  vim analyze_similarity.py 
+  449  cd ../
+  450  gunicorn readeraction:app
+  451  grep 'matplotlib' *.py
+  452  grep 'matplotlib' readeraction/*.py
+  453  cd readeraction/
+  454  vim analyze_lda.py 
+  455  vim build_lda.py 
+  456  vim get_comments.py 
+  457  vim make_diag_plots.py 
+  458  cd ../
+  459  gunicorn readeraction:app
+  460  ls
+  461  ls readeraction/static/
+  462  vim readeraction/analyze_lda.py 
+  463  grep 'conn' ./readeraction/*.py
+  464  grep 'dbname' ./readeraction/*.py
+  465  vim readeraction/convert2sql.py 
+  466  grep 'dbname' ./readeraction/*.py
+  467  gunicorn readeraction:app
+  468  vim readeraction/
+  469  vim readeraction/convert2sql.py 
+  470  grep 'as config' readeraction/*.py
+  471  gunicorn readeraction:app
+  472  grep 'comment_tbl' ./readeraction/*.py
+  473  vim readeraction/views.py
+  474  vim readeraction/convert2sql.py 
+  475  grep 'commentlist_to' readeraction/*.py
+  476  vim views
+  477  vim views.
+  478  vim readeraction/views.py
+  479  vim readeraction/get_comments.py 
+  480  grep 'convert2sql' readeraction/*.py
+  481  vim readeraction/views.py
+  482  vim readeraction/get_comments.py 
+  483  vim readeraction/views.py
+  484  vim readeraction/convert2sql.py 
+  485  vim readeraction/convert2sql.py 
+  486  vim readeraction/views.py
+  487  psql
+  488  sudo -u postgres ti
+  489  sudo -u postgres psql
+  490  gunicorn readeraction:app
+  491  vim readeraction/convert2sql.py 
+  492  vim readeraction/views.py
+  493  grep 'tingzhu' ./readeraction/*.py
+  494  sudo -u postgres psql
+  495  cd readeraction/
+  496  ls
+  497  grep 'dbname' *.py
+  498  exit
+  499  workon readeraction
+  500  cd InsightProject/readeraction/
+  501  sudo -u postgres psql
+  502  vim readeraction/views.py
+  503  vim readeraction/convert2sql.py 
+  504  gunicorn readeraction:app
+  505  sudo -u postgres psql
+  506  vim readeraction/convert2sql.py 
+  507  sudo -u postgres psql
+  508  ls
+  509  cd ../
+  510  ls
+  511  mkdir test
+  512  cd test/
+  513  vim 
+  514  vim test.py
+  515  python3 test.py 
+  516  vim test.py
+  517  python3 test.py 
+  518  vim test.py
+  519  python3 test.py 
+  520  vim test.py
+  521  python3 test.py 
+  522  vim test.py 
+  523  python3 test.py 
+  524  vim test.py 
+  525  python3 test.py 
+  526  vim test.py 
+  527  python3 test.py 
+  528  vim test.py 
+  529  python3 test.py 
+  530  vim test.py 
+  531  python3 test.py 
+  532  vim test.py 
+  533  python3 test.py 
+  534  sudo -u postgres psql
+  535  vim test.py 
+  536  python3 test.py 
+  537  vim test.py 
+  538  python3 test.py 
+  539  vim test.py 
+  540  sudo -u postgres psql
+  541  vim test.py 
+  542  python3 test.py 
+  543  vim test.py 
+  544  python3 test.py 
+  545  vim test.py 
+  546  python3 test.py 
+  547  sudo -u postgres psql
+  548  vim test.py 
+  549  python3 test.py 
+  550  sudo -u postgres psql
+  551  vim test.py 
+  552  python3 test.py 
+  553  sudo -u postgres psql
+  554  vim test.py 
+  555  python3 test.py 
+  556  sudo -u postgres psql
+  557  vim test.py 
+  558  python3 test.py 
+  559  vim test.py 
+  560  python3 test.py 
+  561  vim test.py 
+  562  python3 test.py 
+  563  vim test.py 
+  564  python3 test.py 
+  565  vim test.py 
+  566  python3 test.py 
+  567  vim test.py 
+  568  sudo -u postgres psql
+  569  python3 test.py 
+  570  vim test.py 
+  571  python3 test.py 
+  572  vim test.py 
+  573  python3 test.py 
+  574  vim test.py 
+  575  cd ../readeraction/
+  576  cd readeraction/
+  577  vim convert2sql.py 
+  578  vim views.py
+  579  sudo -u postgres psql
+  580  cd ../
+  581  gunicorn readeraction:app
+  582  grep 'username' ./readeraction/*.py
+  583  ls
+  584  vim readeraction/convert2sql.py 
+  585  cd ../test/
+  586  vim test.py 
+  587  cd ../readeraction/readeraction/
+  588  vim convert2sql.py 
+  589  vim ../../test/test.py 
+  590  vim convert2sql.py 
+  591  vim views.py
+  592  cd ../
+  593  grep 'postgres' ./readeraction/*.py
+  594  gunicorn readeraction:app
+  595  vim ./readeraction/views.py
+  596  gunicorn readeraction:app
+  597  cd readeraction/
+  598  grep 'legend' *.py
+  599  vim make_diag_plots.py 
+  600  cd ../
+  601  gunicorn readeraction:app
+  602  ls
+  603  cd ../
+  604  ls
+  605  deactivate
+  606  exit
+  607  ls
+  608  cd InsightProject/readeraction/
+  609  gunicorn readeraction:app
+  610  workon readeraction
+  611  gunicorn readeraction:app
+  612  ls
+  613  cd readeraction/
+  614  ls
+  615  cd static/
+  616  ls
+  617  ls *.png
+  618  rm *.png
+  619  ls
+  620  cd ../
+  621  grep 'legend' *.py
+  622  vim make_diag_plots.py 
+  623  cd ../
+  624  gunicorn readeraction:app
+  625  grep 'request' ./readeraction/*.py
+  626  gunicorn readeraction:app
+  627  vim readeraction/get_comments.py 
+  628  gunicorn readeraction:app
+  629  vim readeraction/get_comments.py 
+  630  exit
+  631  ls
+  632  workon readeraction
+  633  ls
+  634  cd InsightProject/readeraction/readeraction/templates/
+  635  ls
+  636  vim input.html 
+  637  gunicorn readeraction:app
+  638  cd ../../
+  639  gunicorn readeraction:app
+  640  pwd
+  641  ls
+  642  cd readeraction/
+  643  ls
+  644  pwd
+  645  ls
+  646  mv sports_ldamodel sports_lda
+  647  mv sports_ldamodel.expElogbeta.npy sports_lda.expElogbeta.npy
+  648  mv sports_ldamodel.id2word sports_lda.id2word
+  649  mv sports_ldamodel.state sports_lda.state
+  650  ls
+  651  cd ../
+  652  gunicorn readeraction:app
+  653  grep 'object' ./readeraction/*.py
+  654  vim readeraction/analyze_similarity.py 
+  655  ls
+  656  gunicorn readeraction:app
+  657  vim readeraction/config_readeraction.py
+  658  gunicorn readeraction:app
+  659  exit
+  660  workon readeraction
+  661  cd InsightProject/readeraction/
+  662  vim readeraction/config_readeraction.py
+  663  gunicorn readeraction:app
+  664  vim readeraction/views.py
+  665  vim readeraction/get_comments.py 
+  666  gunicorn readeraction:app
+  667  cd InsightProject/readeraction/
+  668  ls
+  669  workon readeraction
+  670  sudo vim /etc/nginx/nginx.conf 
+  671  gunicorn --timeout 1000 readeraction:app
+  672  sudo vim /etc/nginx/nginx.conf 
+  673  gunicorn --timeout 1000 readeraction:app
+  674  sudo vim /etc/nginx/nginx.conf 
+  675  deactivate
+  676  workon readeraction
+  677  gunicorn --timeout 1500 readeraction:app
+  678  deactivate
+  679  exit
+  680  cd InsightProject/readeraction/readeraction/
+  681  vim views.py
+  682  vim get_comments.py 
+  683  grep 'make_comment' *.py
+  684  vim views.py
+  685  vim get_comments.py 
+  686  grep 'connection' *.py
+  687  grep 'engine' *.py
+  688  vim convert2sql.py 
+  689  history >setup_sql.txt

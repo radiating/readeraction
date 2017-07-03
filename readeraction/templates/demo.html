@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Readeraction demo</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../static/css/starter-template.css" rel="stylesheet">
+    <script type="text/javascript" src="../static/tingscript.js"></script>
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-expand-md navbar-inverse bg-inverse fixed-top">
+      <a class="navbar-brand" href="#">Welcome!</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="{{ url_for('input') }}">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+           <a class="nav-link" href="{{ url_for('about_me') }}">Author</a> 
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('goto_blog') }}">Blog</a>
+          </li>
+<!--      <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="http://insightdatascience.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Insight DS</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown01">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </li> 
+-->
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+<br><br>
+
+<! ----------- Insight tutorial ----------------->
+<div class="container">
+
+<div class="starter-template">
+    <p><img src="../static/background/Logo.png" width="500"></p>
+ <!---       <h3>Highlight insights between the lines.</h3> -->
+    <h3> Automatic comment moderation</h3>
+   <h3> for the New York Times</h3>
+    </div>
+
+    <div class = "container">
+    
+ <!--   <h4> Choose a pre-loaded article to see readers' comments:</h4> -->
+    <p class="lead" id=demo_submit><center><font face="Courier New",color="#360568">Choose a pre-loaded article</font></center></p>
+    <br>
+    <center>
+    <form  action="/output" method="GET">
+            <select name="news_topic" id="news_topics">
+              <option value="sports" selected>Sports</option>
+              <option value="business1">Business #1</option>
+              <option value="business2">Business #2</option>
+              <option value="business3">Business #3</option>
+              <option value="business4">Business #4</option>
+              <option value="politics1">Politics #1</option>
+              <option value="politics2">Politics #2</option>
+              <option value="politics3">Politics #3</option>
+              <option value="politics4">Politics #4</option>
+            </select>
+            <button type="submit" class="btn btn-default btn-lg">Select</button>
+    </form>
+    </center>
+    <br>
+    <br>
+<!--    <h4>OR submit your own article info to see readers' comments:</h4> -->
+    <p class="lead" id=demo_submit><center><font face="Courier New",color="#360568">OR submit by URL and news topic</font></center></p>
+    <center>
+    <form  action="/output" method="GET">
+        <div class="form-group">
+          <label for="web_url">url:</label>
+          <input type="text" id="web_url" name="web_url" placeholder="e.g. https://...">
+        </div>
+ 
+        <div class="form-group">
+          <label for="topic_option">news topic:</label>
+          <input type="text" id="topic_option" name="topic_option" placeholder="e.g. business, sports">
+       <button type="submit" class="btn btn-default btn-lg">Submit</button>
+        </div>
+   
+        <p><i><b>Example:</b> https://www.nytimes.com/2017/06/23/business/dealbook/irs-private-collectors.html (news topic: business)</i></p>
+       
+      </form>
+      </center>
+        
+      
+    </div>
+
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="static/js/bootstrap.min.js"></script>
+
+</div> <!-- /.container-->
+<! ------------end Insight tutorial ------------------>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.9.9/umd/popper.min.js" integrity="sha256-c477vRLKQv1jt9o7w6TTBzFyFznTaZjoMLTDFi7Hlxc=" crossorigin="anonymous"></script>
+    <script src="../../../../dist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../../../assets/js/ie10-viewport-bug-workaround.js"></script>
+  
+<script src="static/js/bootstrap.min.js"></script>
+  </body>
+</html>

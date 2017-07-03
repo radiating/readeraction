@@ -1,0 +1,49 @@
+body {
+  padding-top: 5rem;
+}
+.starter-template {
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+.bordered{
+    width: 1000px;
+    height: 250px;
+    padding: 20px;
+    border: 5px double yellowgreen;
+}
+
+#comment_table{
+    width: 1000px;
+    border: 5px outset #ef7b4a;
+    margin: auto;
+    background-color:#ffce30;
+}
+
+#demo_submit{
+   width: 1000px;
+   border: 5px double darkblue;
+}
+#article_info{
+    border: 5px outset lightblue; 
+    background-color: #194da0
+}
+
+#comment_info{
+    border: 5px outset orange; 
+    background-color:#663189
+}
+
+
+#comment_clf{
+    border: 5px outset #ffce30;
+    background-color:#93191f
+}
+
+.tbl_container{
+    margin: auto;
+    width: 70%;
+}
+#topic_distribution_plots{
+   border: 5px double #93191f;
+   font-family: "Courier New"
+}
