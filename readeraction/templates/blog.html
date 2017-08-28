@@ -28,23 +28,20 @@
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="{{ url_for('input') }}">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="{{ url_for('input') }}">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
            <a class="nav-link" href="{{ url_for('about_me') }}">Author</a> 
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('goto_blog') }}">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('goto_ppt') }}">Slides</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="{{ url_for('goto_github') }}">GitHub</a>
           </li>
-<!--      <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="http://insightdatascience.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Insight DS</a>
-            <div class="dropdown-menu" aria-labelledby="dropdown01">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-          </li> 
--->
         </ul>
         <form class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
@@ -163,7 +160,7 @@ The distribution of similarity values (Fig. 10) shows in this example that most 
 
 
 <h3>Final words: intepretation of similarity</h3>
-For comment moderation, it is important to prevent dilution of the quality of discussion by irrelevant comments. In the implementation of readearction, the assumption is that relevance is related to how much overlap a comment in terms of the topics it contains with the article. Relevance and similarity is of course not equivalence. Illustrated in the quadrant plot in Fig. 11, the lower right quadrant represents the case where a comment would be deemed as on-topic by a simiarity index of 1, but it can also be completely irrelevant if the comment was basically a copy-and-paste of the article. The upper left quadrant has the most insight where a comment is dissimilar and still relevant. This would reveal the most about readers' reactions as a result of the article. The understanding of readers' actions could help New York Times select and draft the next article pieces which cover more topics that readers would also be interested in. A manual review of the low-similarity comments would still be needed to pick out ones that are relevant even though dissimilar. With readeraction, New York Times would have a ranked list already, as opposed to having to read every comment manually.
+For comment moderation, it is important to prevent dilution of the quality of discussion by irrelevant comments. In the implementation of readearction, the assumption is that relevance is related to how much overlap a comment in terms of the topics it contains with the article. Relevance and similarity is of course not equivalent. Illustrated in the quadrant plot in Fig. 11, the lower right quadrant represents the case where a comment would be deemed as on-topic by a simiarity index of 1, but it can also be completely irrelevant if the comment was basically a copy-and-paste of the article. The upper left quadrant has the most insight where a comment is dissimilar and still relevant. This would reveal the most about readers' reactions as a result of the article. The understanding of readers' actions could help New York Times select and draft the next article pieces which cover more topics that readers would also be interested in. A manual review of the low-similarity comments would still be needed to pick out ones that are relevant even though dissimilar. With readeraction, New York Times would have a ranked list already, as opposed to having to read every comment manually.
 <br>
 <div class="image">
 <center>

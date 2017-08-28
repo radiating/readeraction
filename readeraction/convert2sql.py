@@ -17,8 +17,8 @@ import readeraction.config_readeraction as config
 
 # function converts a table(list) of comments into a sql database
 # also append the list of similarity value for each comment
-def commentlist_to_sql(comments_list,dbname,similarity_list):
-    columns=['time','user_display_name','user_location','comments','recommendation','replies','toxicity','nyt_pick','similarity']
+def commentlist_to_sql(comments_list,dbname,similarity_list, comment_length):
+    columns=['time','user_display_name','user_location','comments','recommendation','replies','toxicity','nyt_pick','similarity','length']
     df=pd.DataFrame(columns=columns,index=np.arange(len(comments_list)))
     
     for i in np.arange(len(comments_list)):
@@ -30,6 +30,7 @@ def commentlist_to_sql(comments_list,dbname,similarity_list):
         df.loc[i]['replies']=comments_list[i]['replyCount']
         df.loc[i]['nyt_pick']=comments_list[i]['editorsSelection']
         df.loc[i]['similarity']=similarity_list[i]
+        df.loc[i]['length']=comment_length[i]
 
     # load in the "inappropriate comment" classifier
     full_path='/home/ubuntu/InsightProject/readeraction/readeraction/'

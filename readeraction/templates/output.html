@@ -33,10 +33,13 @@
             <a class="nav-link" href="#newdoctopics">Topics</a>
           </li>
           <li class="nav-item">
-           <a class="nav-link" href="#Apppick">App pick </a>
+            <a class="nav-link" href="#TimePlot">Comment stats</a>
           </li>
            <li class="nav-item">
-            <a class="nav-link" href="#SimilarityPlot">Similarity plot</a>
+            <a class="nav-link" href="#SimilarityPlot">Similarity results</a>
+          </li>
+          <li class="nav-item">
+           <a class="nav-link" href="#Apppick">App pick </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#NYTpick">NYT pick</a>
@@ -81,18 +84,37 @@
    </div>
 
    <table class="table table-hover">
-      <tr><th>News category</th><th>Article headline</th></tr>
-      <tr><td>{{ topic_option }}</td><td><q>{{ headline }}</q></td></tr>
+      <tr><th>News category</th><th>Article headline</th><th>URL</th></tr>
+      <tr><td>{{ topic_option }}</td><td><q>{{ headline }}</q></td><td>{{ web_url }}</td></tr>
    </table>   
       <p><img src="{{newdoc_topics_plot}}" width="1200"></p>
    </div>
 </div> <!-- /.container -->
 
 <div class="tbl_container">
+   <a name="TimePlot"></a> 
+   <div class="starter-template">
+      <p class="lead" id="comment_info"><font face="Courier New", color="#e6eaf2">Cumulative time behavior of comments</font></p>
+      <center><p>The influx of reader comments reduces as time goes by. The earlier comments tends to get more thumb-ups (ie. likes) and replies from other readers. If available, certain comments have been selected by the NYTimes as their top-pick.</p></center>   
+   </div>
+   <center><img src="{{time_plot}}" width="1400"></center>
+</div><!-- /.container -->
+
+<div class="tbl_container">
+   <a name="SimilarityPlot"></a>    
+   <div class="starter-template">
+      <p class="lead" id="comment_info"><font face="Courier New", color="#e6eaf2">Similarity index by Readeraction</font></p>
+      <center><p>Each comment is given a similarity index score by Readeraction. Shown below are the distribution of the similarity indices, the relationship between similarity index, the length of comment and the number of thumb-ups each comment received.</p></center>
+      <p><center><img src="{{readeractionpick_plot}}" width="1400"></center></p>
+   </div>
+</div><!-- /.container -->
+
+<div class="tbl_container">
       <a name="Apppick"></a>
       <div class="starter-template">
       <p class="lead" id=comment_table><font face="Courier New", color="#360568">Comments with high similarity index according to <i>Readeraction</i></font></p>
       </div>
+      <center><p>Top comments with the highest similarity indices. It is also indicated if each comment was an NYTimes top-pick.</p></center>
       <table class="table table-hover">
       <tr><th>No.</th><th>Comments</th><th>Similarity</th><th>Likes</th><th>NYT pick</th></tr>
       {% for comment in top_sim_comments %}
@@ -101,44 +123,9 @@
       </table>
       
       <div class="starter-template">
-      <p class="lead" id="topic_distribution_plots">Distribution of topics (Top 4 most similar comments)</p>
+      <p class="lead" id="topic_distribution_plots">Topic distributions of the top 4 most similar comments</p>
       <p><img src="{{highSim_plot_name}}" width="1600"></p>
       </div>
-</div><!-- /.container -->
-
-<div class="tbl_container">
-      <div class="starter-template">
-      <p class="lead" id=comment_table><font face="Courier New", color="#360568">Comments with low similarity index according to <i>Readeraction</i></font></p>
-      </div>
-      <table class="table table-hover">
-      <tr><th>No.</th><th>Comments</th><th>Similarity</th><th>Likes</th><th>NYT pick</th></tr>
-      {% for comment in low_sim_comments %}
-    <tr><td>{{ comment['index']}}</td><td>{{ comment['commentBody'] }}</td><td>{{ '%0.3f' % comment['similarity'] }}</td><td>{{ comment['recommendation'] }}</td><td>{{ comment['nyt_pick'] }}</td></tr>
-      {% endfor %}
-      </table>
-      
-      <div class="starter-template">
-      <p class="lead" id="topic_distribution_plots">Distribution of topics (Top 4 most disimilar comments)</p>
-      <p><img src="{{lowSim_plot_name}}" width="1600"></p>
-      </div>
-</div><!-- /.container --> 
-
-
-<div class="container">
-   <div class="starter-template">
-      <p class="lead" id="comment_info"><font face="Courier New", color="#e6eaf2">Cumulative time behavior of comments</font></p>
-      <p><img src="{{time_plot}}" width="800"></p>
-   </div>
-      
-   <div class="starter-template">
-      <p class="lead" id="comment_info"><font face="Courier New", color="#e6eaf2">Recommendations and replies for each comment</font></p>
-      <p><img src="{{nytpick_plot}}" width="1200"></p>
-   </div>
-   <a name="SimilarityPlot"></a>    
-   <div class="starter-template">
-      <p class="lead" id="comment_info"><font face="Courier New", color="#e6eaf2">Similarity index by Readeraction</font></p>
-      <p><img src="{{readeractionpick_plot}}" width="1200"></p>
-   </div>
 </div><!-- /.container -->
 
 <div class="tbl_container">
@@ -146,6 +133,7 @@
       <div class="starter-template">
      <p class="lead" id="comment_table"><font face="Courier New", color="#360568">Comments picked by NYTimes</font></p>
       </div>
+      <p><center>If available, NYTimes has chosen the following comments to be the NYTimes pick, as ordered by the number of thumb-ups from readers.</center></p>
       <table class="table table-hover" >
       <tr><th>Comments</th><th>Likes</th><th>Similarity</th></tr>
       {% for comment in nytpick_comments %}
@@ -158,8 +146,8 @@
 <div class="tbl_container">
       <div class="starter-template">
         <p class="lead" id="comment_clf"><font face="Courier New", color="#e6eaf2">Inappropriate comments</font></p>
-   <!--     <p class="lead">Comments deemed inappropriate.</p> -->
       </div>
+      <p><center>If available, the follow comments are flagged to contain inappropriate words or phrases. The filter was trained to have an accuracy of 94% using Logistic Regression.</center></p>
       <table class="table table-hover">
       <tr><th>User name</th><th>User location</th><th>Comments</th></tr>
       {% for comment in bad_comments %}

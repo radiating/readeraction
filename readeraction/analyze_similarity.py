@@ -35,10 +35,12 @@ def get_lda_results_for_newdoc(new_doc_url,topic):
 # function returns cosine similarity for all comments, and 2 distribution plots
 def add_comment_similarity_and_plots(ldamodel,dictionary,comments_tbl,new_doc_lda_result,num_topics):
     
-    (comments_lda_result,comments_clean)=analyze_lda.compareToComments(ldamodel,dictionary,comments_tbl)
+    (comments_lda_result,comments_clean,comment_length)=analyze_lda.compareToComments(ldamodel,dictionary,comments_tbl)
     (list_cosine, large_diff,small_diff)=analyze_lda.calc_cosine_list(new_doc_lda_result,comments_lda_result,num_topics)
+    
     print('Finish calculating cosine values between new doc and comments')
     largeDiff_plot_name,smallDiff_plot_name=analyze_lda.plot_topic_distribution_multiple(new_doc_lda_result, comments_lda_result,list_cosine,num_topics)
-
-    return list_cosine, largeDiff_plot_name,smallDiff_plot_name
+    similarity_length_plot_name = analyze_lda.plot_similarity_commentLength(comment_length,list_cosine)
+    
+    return list_cosine, largeDiff_plot_name,smallDiff_plot_name,comment_length,similarity_length_plot_name
 

@@ -98,8 +98,12 @@ def compareToComments(ldamodel, lda_dictionary,comments_tbl):
             print('Check returned results where tuples are (0,0)')
             comment_topic_result.append((0,0))
         c=c+1
+        
+    comment_length = calc_comment_length(new_comment_clean)
+    print('Computed length of each cleaned comments')
+    
     print('Finish comparing to comments')    
-    return comment_topic_result,new_comment_clean
+    return comment_topic_result,new_comment_clean,comment_length
 
 # function calculates cosine angle for all comments
 def calc_cosine_list(article_vec,comments_list_vec, num_topics):
@@ -204,5 +208,26 @@ def plot_topic_distribution_multiple(new_doc_lda, comment_lda_all, list_cosine,n
     
     # return the 2 saved figure file names
     return plotfile_largeDiff, plotfile_smallDiff
+    
+# function calculates the length of each comment
+# using cleaned comments (ie. count num of tokens)    
+def calc_comment_length(clean_comments_tokens):
+    count_vec = [len(comment) for comment in clean_comments_tokens]    
+    return count_vec
 
+# function plots a scatter plot between similarity index and comment length
+def plot_similarity_commentLength(comment_length,similarity_value):  
+    fig = plt.figure()
+
+    plt.scatter(similarity_value,comment_length)
+    plt.ylabel('Comment length')
+    plt.xlabel('Similarity Index')
+
+    fig_name_only='scatter_similarity_commentLength_'+str(time.time())+'.png'        
+    plotfile=os.path.join('/home/ubuntu/InsightProject/readeraction/readeraction/static',fig_name_only)
+
+    fig.savefig(plotfile)
+    plotfile_sim_length=os.path.join('static/',fig_name_only)
+    
+    return plotfile_sim_length
 

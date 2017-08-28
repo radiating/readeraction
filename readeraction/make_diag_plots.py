@@ -13,8 +13,8 @@ import numpy as np
 import os, time, glob
 import seaborn as sb
 
-# function makes a plot of the cummulative number of comments
-# over time (in hours)
+# function makes 3 plots to show cummulative number of comments, thumb-ups
+# and replies over time (in hours)
 def plot_comments_vs_time(comment_df):
     date_time=comment_df['time']
     epoch=[]
@@ -24,16 +24,47 @@ def plot_comments_vs_time(comment_df):
     
     epoch=(np.array(epoch)-min(epoch))/60/60
 
+    #### ------ subplot 1
     plt.figure()
+    plt.subplot(1,3,1)
     plt.hist(epoch,cumulative=True,histtype='step',linestyle='solid',color='black')
-    plt.xlabel('Time since first comment (hour)',fontsize=18)
-    plt.ylabel('Number of comments',fontsize=18)
-    plt.xticks(fontsize=18)
-    plt.yticks(fontsize=18)
+    plt.xlabel('Time (hour)')
+    plt.ylabel('Cummulative number of comments')
+    
+    #### ------ subplot 2
+    recommendation_col=comment_df['recommendation']
+    plt.subplot(1,3,2)
+    plt.scatter(epoch,recommendation_col,s=8,marker='o',label='# of thumb-up')
+    plt.ylabel('# of thumb-ups for each comment')
+    plt.xlabel('Time (hour)')
+
+    nytpick_col=recommendation_col[comment_df['nyt_pick']==True]
+    if len(nytpick_col)>0:
+        nytpick_epoch=epoch[comment_df['nyt_pick']==True]
+        plt.scatter(nytpick_epoch,nytpick_col,s=12,marker='*',c='b',label='NYT pick')
+        plt.legend(frameon=True)
+
+    #### ------ subplot 3
+    reply_col=comment_df['replies']
+    ax=plt.subplot(1,3,3)
+    plt.scatter(epoch,reply_col,marker='o',s=8,label='# of reply')    
+    plt.ylabel('# of replies for each comment')
+    plt.xlabel('Time (hour)')
+    nytpick_col=reply_col[comment_df['nyt_pick']==True]
+    if len(nytpick_col)>0:
+        nytpick_epoch=epoch[comment_df['nyt_pick']==True]
+        plt.scatter(nytpick_epoch,nytpick_col,s=12,marker='*',c='b',label='NYT pick')
+        plt.legend(frameon=True)
+        #ax.legend(loc='upper center',frameon=True)
+    
+    plt.tight_layout()
+
+##########
+    plt.tight_layout()
 
     fig_name_only=str(time.time())+'.png'        
     plotfile=os.path.join('/home/ubuntu/InsightProject/readeraction/readeraction/static',fig_name_only)
-    plt.savefig(plotfile)
+    plt.savefig(plotfile,dpi=500)
     plotfile=os.path.join('static/',fig_name_only)
     return plotfile
   
@@ -79,10 +110,11 @@ def plot_comments_by_picks(comment_df):
     
     return plotfile
 
-# function makes two plots:
-# 1) number of recommendations each comment received, colored by the level of similarity
-# 2) distribution of similarity index for all comments
-# Two plots are combined into a single figure for web app
+# function makes 3 plots:
+# 1) distribution of similarity index for all comments
+# 2) similarity index vs. length of comments
+# 3) similarity index vs. num of thumb-ups/comment
+# 3 plots are combined into a single figure for web app
 def plot_comments_by_readeraction(comment_df):
     date_time=comment_df['time']
     
@@ -97,32 +129,28 @@ def plot_comments_by_readeraction(comment_df):
         epoch.append(int(time.mktime(time.strptime(t, pattern))))
 
     epoch=(np.array(epoch)-min(epoch))/60/60
-    
+########
     plt.figure()
-    
-    plt.subplot(121)
-    for i in np.arange(len(segments)-1):
-        print('segments: ',segments[i], ' ~ ', segments[i+1])
-        ind=[s for s, t  in enumerate(similarity_col) if t >segments[i] and t <= segments[i+1]]
-        print(len(ind))
-        if len(ind)>0:
-            similarity_in_range=recommendations_col[ind]
-            similarity_epoch=epoch[ind]
-            plt.plot(similarity_epoch,similarity_in_range,'o',label=legend_names[i])
-
-    plt.legend()        
-    plt.xlabel('Time since first publication')
-    plt.ylabel('Number of recommendations')
-    
-    plt.subplot(122)
+    plt.subplot(131)
     plt.hist(similarity_col,bins=20)
     plt.xlabel('Similarity index')
-    plt.ylabel('Number of comments')
+    plt.ylabel('Count of comments')
     
+    plt.subplot(132)
+    plt.scatter(comment_df['similarity'],comment_df['length'],s=8)
+    plt.xlabel('Similarity index')
+    plt.ylabel('Length of each comment')
+
+    plt.subplot(133)
+    plt.scatter(comment_df['similarity'],comment_df['recommendation'],s=8)
+    plt.xlabel('Similarity index')
+    plt.ylabel('# of thumb-ups for each comment')
+    
+    plt.tight_layout()
     
     fig_name_only=str(time.time())+'-nytpick.png'        
     plotfile=os.path.join('/home/ubuntu/InsightProject/readeraction/readeraction/static',fig_name_only)
-    plt.savefig(plotfile)
+    plt.savefig(plotfile,dpi=500)
     plotfile=os.path.join('static/',fig_name_only)
  
     return plotfile

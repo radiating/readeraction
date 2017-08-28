@@ -43,6 +43,10 @@ def goto_github():
 def input():
     return render_template("demo.html")
 
+@app.route('/ppt')
+def goto_ppt():
+    return render_template("ppt.html")
+
 @app.route('/output',methods=['GET','POST'])
 def output():    
    
@@ -80,14 +84,15 @@ def output():
     newdoc_topics_plot=plot_topics_for_article(topics_guide_df,new_doc_lda_result)
     
     print('Calculate similarity for comments')
-    similarity_list,largeDiff_plot_name,smallDiff_plot_name=add_comment_similarity_and_plots(ldamodel,dictionary,comments_df,new_doc_lda_result,num_topics)
+    similarity_list,largeDiff_plot_name,smallDiff_plot_name,comment_length, similarity_countLength_plot_name = add_comment_similarity_and_plots(ldamodel,dictionary,comments_df,new_doc_lda_result,num_topics)
     print(largeDiff_plot_name)
     print(smallDiff_plot_name)
+    print(similarity_countLength_plot_name)
 
     if not similarity_list:
         similarity_list=0*len(comments_df)
         print('Fail to compute similarity')
-    shorter_df=commentlist_to_sql(comments_df,dbname,similarity_list)
+    shorter_df=commentlist_to_sql(comments_df,dbname,similarity_list,comment_length)
 
     
     time_plot = plot_comments_vs_time(shorter_df)
@@ -98,7 +103,7 @@ def output():
     engine=create_engine(url)
     con=engine.connect()
 
-    query = "SELECT * FROM comment_tbl WHERE toxicity='Yes'"
+    query = "SELECT * FROM comment_tbl WHERE toxicity='Yes' and length > 0 ORDER BY length"
     print(query)
     query_results=pd.read_sql_query(query,con)
     print(query_results)
@@ -106,7 +111,7 @@ def output():
     for i in range(0,query_results.shape[0]):
         bad_comments.append(dict(user_displayname=query_results.iloc[i]['user_display_name'], user_location=query_results.iloc[i]['user_location'], commentBody=query_results.iloc[i]['comments']))
      
-    query = "SELECT * FROM comment_tbl WHERE nyt_pick = 'True' ORDER BY similarity DESC"
+    query = "SELECT * FROM comment_tbl WHERE nyt_pick = 'True' ORDER BY recommendation DESC"
     print(query)
     query_results=pd.read_sql_query(query,con)
     print(query_results)
@@ -114,7 +119,7 @@ def output():
     for i in range(0,query_results.shape[0]):
         nytpick_comments.append(dict(commentBody=query_results.iloc[i]['comments'],recommendation=query_results.iloc[i]['recommendation'],similarity=query_results.iloc[i]['similarity']))
     
-    query = "SELECT * FROM comment_tbl WHERE toxicity='No' ORDER BY similarity DESC LIMIT 4"
+    query = "SELECT * FROM comment_tbl WHERE toxicity='No' ORDER BY similarity DESC LIMIT 10"
     print(query)
     query_results=pd.read_sql_query(query,con)
     print(query_results)
@@ -122,7 +127,7 @@ def output():
     for i in range(0,query_results.shape[0]):
         top_sim_comments.append(dict(index=query_results.iloc[i]['index'], post_time=query_results.iloc[i]['time'],commentBody=query_results.iloc[i]['comments'],recommendation=query_results.iloc[i]['recommendation'],nyt_pick=query_results.iloc[i]['nyt_pick'],similarity=query_results.iloc[i]['similarity']))
     
-    query = "SELECT * FROM comment_tbl WHERE toxicity='No' ORDER BY similarity ASC LIMIT 4"
+    query = "SELECT * FROM comment_tbl WHERE toxicity='No' and length>10 ORDER BY similarity ASC LIMIT 4"
     print(query)
     query_results=pd.read_sql_query(query,con)
     print(query_results)
@@ -130,4 +135,4 @@ def output():
     for i in range(0,query_results.shape[0]):
         low_sim_comments.append(dict(index=query_results.iloc[i]['index'], post_time=query_results.iloc[i]['time'],commentBody=query_results.iloc[i]['comments'],recommendation=query_results.iloc[i]['recommendation'],nyt_pick=query_results.iloc[i]['nyt_pick'],similarity=query_results.iloc[i]['similarity']))
     
-    return render_template("output.html", headline=headline,top_sim_comments=top_sim_comments,low_sim_comments=low_sim_comments, nytpick_comments=nytpick_comments,bad_comments = bad_comments, time_plot = time_plot,topic_option=topic_option,nytpick_plot=nytpick_plot,readeractionpick_plot=readeractionpick_plot,newdoc_topics_plot=newdoc_topics_plot,lowSim_plot_name=largeDiff_plot_name,highSim_plot_name=smallDiff_plot_name)
+    return render_template("output.html", web_url=web_url, headline=headline,top_sim_comments=top_sim_comments,low_sim_comments=low_sim_comments, nytpick_comments=nytpick_comments,bad_comments = bad_comments, time_plot = time_plot,topic_option=topic_option,nytpick_plot=nytpick_plot,readeractionpick_plot=readeractionpick_plot,newdoc_topics_plot=newdoc_topics_plot,lowSim_plot_name=largeDiff_plot_name,highSim_plot_name=smallDiff_plot_name,sim_count_plot_name=similarity_countLength_plot_name)
